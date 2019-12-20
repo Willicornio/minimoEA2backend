@@ -90,6 +90,17 @@ usuarioCtrl.getStudent = async(req, res)=>{
             res.json({status: '404'});
         }
       };
+
+      usuarioCtrl.deleteSubject = async (req, res) => {
+        try{
+            const subject = await Subject.findOneAndDelete({name: req.params.name});
+            res.json({status: '200'});
+          
+        }
+        catch{
+            res.json({status: '404'});
+        }
+      };
     
       usuarioCtrl.anadirCarrera =  async (req, res) => {
         try{   
